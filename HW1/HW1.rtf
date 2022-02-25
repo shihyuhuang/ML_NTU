@@ -1,0 +1,301 @@
+{\rtf1\ansi\ansicpg950\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 HelveticaNeue-Bold;
+\f3\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid501\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\partightenfactor0
+
+\f0\fs40 \cf0 ML-HW1\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\fs26 \cf0 \
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f1\fs18 \cf0 {\listtext	\uc0\u8226 	}
+\f0\fs26 Original: \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 	Epoch 1833, Train loss: 1.7741, Valid loss: 2.4238, kaggle: 1.849\
+\
+original+ selection\
+kaggle 0.90\
+\
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls2\ilvl0
+\f1\fs18 \cf0 {\listtext	\uc0\u8226 	}
+\f0\fs26 'n_epochs': 5000, 'learning_rate': 1e-5, \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Saving model with loss 0.952...\
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls3\ilvl0
+\f1\fs18 \cf0 {\listtext	\uc0\u8226 	}
+\f0\fs26 4ill+positive   n_epochs': 5000, 'learning_rate': 1e-4, \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Saving model with loss 0.937\'85\
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls4\ilvl0
+\f1\fs18 \cf0 {\listtext	\uc0\u8226 	}
+\f0\fs26 4ill+positive   n_epochs': 10000, 'early_stop': 800, 'learning_rate': 1e-4, \'91wei\'92ght_decay:  1e-4,\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0  nn.Linear(input_dim, 32),\
+            nn.ReLU(),\
+            nn.Linear(32, 1) \
+Saving model with loss 0.891...\
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls5\ilvl0
+\f1\fs18 \cf0 {\listtext	\uc0\u8226 	}
+\f0\fs26 4ill+positive   n_epochs': 10000, 'early_stop': 800, 'learning_rate': 1e-4, \'91weight_decay:  0,\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0  nn.Linear(input_dim, 32),\
+            nn.ReLU(),\
+            nn.Linear(32, 1) \
+Saving model with loss 0.909...\
+batch 256 up\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+batch128 Saving model with loss 1.029...\
+\
+\
+64 adam weight1e-4\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 260, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1000,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.848\'85\
+kaggle\
+\
+\
+32 my adam  weight0\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 300, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss ...\
+\
+\
+64 SGD\
+config = \{\
+    'seed': 42069,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 270, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1000,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 1.099...\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 SGD\
+config = \{\
+    'seed': 42069,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 350, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 1.034...\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 my adam weight0\
+config = \{\
+    'seed': 42069,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 350, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 1.047...\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\partightenfactor0
+
+\f2\b\fs40 \cf0 Done\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\b0\fs26 \cf0 64 adam weight1e-4\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1000,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.764\'85\
+kaggle Score: 0.85763\
+\
+64  my adam weight0 \
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1000,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.767...\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Done\
+64 my adam weight0.0001\
+config = \{\
+    'seed': 42069,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.687...\
+kaggle Score: 0.91440\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 my adam weight0.0001 +wear mask\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.755...\
+\
+Done\
+32 my adam  weight0.0001\
+config = \{\
+    'seed': 43210,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.695...\
+kaggle Score: 0.90182\
+\
+\
+64 my adam weight0.0001 +work out home\
+config = \{\
+    'seed': 43210,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.711...\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Done\
+32 16my adam weight0.0001\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.776...\
+kaggle Score: 0.87168\
+\
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls6\ilvl0\cf0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 my adam weight0.0001 +work out home\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 512, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.734...\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 my adam weight0.0001 \
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 15000,     # Number of epochs.            \
+    'batch_size': 520, \
+    'learning_rate': 0.0001,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.675\'85\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 64 my adam weight0.0001 +work out home\
+config = \{\
+    'seed': 5201314,      # Your seed number, you can pick your lucky number. :)\
+    'select_all': False,   # Whether to use all features.\
+    'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio\
+    'n_epochs': 8000,     # Number of epochs.            \
+    'batch_size': 520, \
+    'learning_rate': 1e-4,              \
+    'early_stop': 1500,    # If model has not improved for this many consecutive epochs, stop training.     \
+    'save_path': './models/model.ckpt'  # Your model will be saved here.\
+\}\
+Saving model with loss 0.665\'85\
+kaggle: 1.00924}
