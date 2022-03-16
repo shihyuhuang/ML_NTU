@@ -377,7 +377,7 @@ kfold = KFold(n_splits = k_folds, shuffle = True)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # The number of training epochs and patience.
-n_epochs = 30
+n_epochs = 70
 patience = 200 # If no improvement in 'patience' epochs, early stop
 
 # Initialize a model, and put it on the device specified.
