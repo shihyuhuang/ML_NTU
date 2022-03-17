@@ -359,7 +359,7 @@ class Classifier(nn.Module):
         
         
 
-batch_size = 64
+batch_size = 32
 _dataset_dir = "./food11"
 # Construct datasets.
 # The argument "loader" tells how torchvision reads the data.
@@ -372,7 +372,7 @@ valid_loader = DataLoader(valid_set, batch_size=batch_size, shuffle=True, num_wo
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # The number of training epochs and patience.
-n_epochs = 500
+n_epochs = 400
 patience = 200 # If no improvement in 'patience' epochs, early stop
 
 # Initialize a model, and put it on the device specified.
@@ -481,7 +481,7 @@ for epoch in range(n_epochs):
     if valid_acc > best_acc:
         with open(f"./{_exp_name}_log.txt","a") as filef:
             print(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f} -> best")
-            filef.write(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f} -> best")
+            filef.write(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f} -> best\n")
     else:
         with open(f"./{_exp_name}_log.txt","a"):
             print(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f}")
