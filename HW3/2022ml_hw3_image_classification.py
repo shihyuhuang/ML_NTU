@@ -40,7 +40,7 @@ from tqdm.auto import tqdm
 import random
 
 from torchvision.models.densenet import densenet121
-
+from torchvision.models import efficientnet_b5
 
 myseed = 6666  # set a random seed for reproducibility
 torch.backends.cudnn.deterministic = True
@@ -359,7 +359,7 @@ class Classifier(nn.Module):
         
         
 
-batch_size = 32
+batch_size = 64
 _dataset_dir = "./food11"
 # Construct datasets.
 # The argument "loader" tells how torchvision reads the data.
@@ -377,7 +377,8 @@ patience = 200 # If no improvement in 'patience' epochs, early stop
 
 # Initialize a model, and put it on the device specified.
 #model = Classifier().to(device)
-model = densenet121(pretrained=False).to(device)
+#model = densenet121(pretrained=False).to(device)
+model = efficientnet_b5(pretrained=False).to(device)
 
 # For the classification task, we use cross-entropy as the measurement of performance.
 criterion = nn.CrossEntropyLoss()
@@ -481,6 +482,7 @@ for epoch in range(n_epochs):
     if valid_acc > best_acc:
         with open(f"./{_exp_name}_log.txt","a") as filef:
             print(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f} -> best")
+            filef.write(f"[ Train | {epoch + 1:03d}/{n_epochs:03d} ] loss = {train_loss:.5f}, acc = {train_acc:.5f}")
             filef.write(f"[ Valid | {epoch + 1:03d}/{n_epochs:03d} ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f} -> best\n")
     else:
         with open(f"./{_exp_name}_log.txt","a"):
@@ -505,7 +507,8 @@ test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, num_wor
 """# Testing and generate prediction CSV"""
 
 #model_best = Classifier().to(device)
-model_best = densenet121(pretrained=False).to(device)
+#model_best = densenet121(pretrained=False).to(device)
+model_best = efficientnet_b5(pretrained=False).to(device)
 
 model_best.load_state_dict(torch.load(f"{_exp_name}_best.ckpt"))
 model_best.eval()
