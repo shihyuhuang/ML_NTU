@@ -1,0 +1,25 @@
+Implement augmentation by finishing train_tfm in the code with image size of your choice. Copy your train_tfm code here, for example : 
+train_tfm = transforms.Compose([
+    # Resize the image into a fixed shape (height = width = 128)
+    transforms.Resize((128, 128)),
+    # You need to add some transforms here.
+
+    transforms.ToTensor(),
+])
+
+My Ans:
+
+train_tfm = transforms.Compose([
+    # Resize the image into a fixed shape (height = width = 128)
+    transforms.Resize((128, 128)),
+    transforms.RandomRotation(15),
+    transforms.RandomHorizontalFlip(),
+    ImageNetPolicy(),
+    transforms.RandomVerticalFlip(),
+    transforms.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1),
+    transforms.RandomAffine(15),
+    # You may add some transforms here.
+    # ToTensor() should be the last one of the transforms.
+    transforms.ToTensor(),
+ 
+])
