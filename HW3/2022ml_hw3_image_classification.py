@@ -372,7 +372,7 @@ valid_loader = DataLoader(valid_set, batch_size=batch_size, shuffle=True, num_wo
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # The number of training epochs and patience.
-n_epochs = 400
+n_epochs = 500
 patience = 200 # If no improvement in 'patience' epochs, early stop
 
 # Initialize a model, and put it on the device specified.
