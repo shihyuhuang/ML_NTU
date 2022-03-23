@@ -39,8 +39,7 @@ from torchvision.datasets import DatasetFolder, VisionDataset
 from tqdm.auto import tqdm
 import random
 
-from torchvision.models.densenet import densenet121
-from torchvision.models import efficientnet_b5
+from torchvision.models import efficientnet_b6
 
 myseed = 6666  # set a random seed for reproducibility
 torch.backends.cudnn.deterministic = True
@@ -370,15 +369,17 @@ valid_loader = DataLoader(valid_set, batch_size=batch_size, shuffle=True, num_wo
 
 # "cuda" only when GPUs are available.
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f'DEVICE: {device}')
 
 # The number of training epochs and patience.
-n_epochs = 500
+n_epochs = 1000
 patience = 200 # If no improvement in 'patience' epochs, early stop
 
 # Initialize a model, and put it on the device specified.
 #model = Classifier().to(device)
 #model = densenet121(pretrained=False).to(device)
-model = efficientnet_b5(pretrained=False).to(device)
+model = efficientnet_b6(pretrained=False).to(device)
+
 
 # For the classification task, we use cross-entropy as the measurement of performance.
 criterion = nn.CrossEntropyLoss()
@@ -507,8 +508,7 @@ test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, num_wor
 """# Testing and generate prediction CSV"""
 
 #model_best = Classifier().to(device)
-#model_best = densenet121(pretrained=False).to(device)
-model_best = efficientnet_b5(pretrained=False).to(device)
+model_best = efficientnet_b6(pretrained=False).to(device)
 
 model_best.load_state_dict(torch.load(f"{_exp_name}_best.ckpt"))
 model_best.eval()
