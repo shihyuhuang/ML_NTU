@@ -39,7 +39,7 @@ from torchvision.datasets import DatasetFolder, VisionDataset
 from tqdm.auto import tqdm
 import random
 
-from torchvision.models import efficientnet_b6
+from torchvision.models import efficientnet_b7
 
 myseed = 6666  # set a random seed for reproducibility
 torch.backends.cudnn.deterministic = True
@@ -260,6 +260,7 @@ class Invert(object):
 test_tfm = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225]),
 ])
 
 # However, it is also possible to use augmentation in the testing phase.
@@ -276,7 +277,7 @@ train_tfm = transforms.Compose([
     # You may add some transforms here.
     # ToTensor() should be the last one of the transforms.
     transforms.ToTensor(),
-    #transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])
+    transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225]),
 ])
 
 """## **Datasets**
@@ -378,7 +379,7 @@ patience = 200 # If no improvement in 'patience' epochs, early stop
 # Initialize a model, and put it on the device specified.
 #model = Classifier().to(device)
 #model = densenet121(pretrained=False).to(device)
-model = efficientnet_b6(pretrained=False).to(device)
+model = efficientnet_b7(pretrained=False).to(device)
 
 
 # For the classification task, we use cross-entropy as the measurement of performance.
@@ -508,7 +509,7 @@ test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, num_wor
 """# Testing and generate prediction CSV"""
 
 #model_best = Classifier().to(device)
-model_best = efficientnet_b6(pretrained=False).to(device)
+model_best = efficientnet_b7(pretrained=False).to(device)
 
 model_best.load_state_dict(torch.load(f"{_exp_name}_best.ckpt"))
 model_best.eval()
