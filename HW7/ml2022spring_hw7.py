@@ -71,8 +71,8 @@ import numpy as np
 import random
 import torch
 from torch.utils.data import DataLoader, Dataset 
-from transformers import AdamW, BertForQuestionAnswering, BertTokenizerFast
-
+from transformers import AdamW, BertForQuestionAnswering, BertTokenizerFast, get_linear_schedule_with_warmup
+import matplotlib.pyplot as plt
 from tqdm.auto import tqdm
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -171,7 +171,7 @@ class QA_Dataset(Dataset):
         self.max_paragraph_len = 150
         
         ##### TODO: Change value of doc_stride #####
-        self.doc_stride = 150
+        self.doc_stride = 70
 
         # Input sequence length = [CLS] + question + [SEP] + paragraph + [SEP]
         self.max_seq_len = 1 + self.max_question_len + 1 + self.max_paragraph_len + 1
@@ -289,6 +289,13 @@ logging_step = 100
 learning_rate = 1e-4
 optimizer = AdamW(model.parameters(), lr=learning_rate)
 
+
+total_steps = len(train_loader) * num_epoch
+print(total_steps)             
+warm_up_ratio = 0.1 
+scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps = warm_up_ratio * total_steps, num_training_steps = total_steps)
+#lr_record = []
+                            
 if fp16_training:
     model, optimizer, train_loader = accelerator.prepare(model, optimizer, train_loader) 
 
@@ -322,11 +329,13 @@ for epoch in range(num_epoch):
             output.loss.backward()
         
         optimizer.step()
+        scheduler.step()
         optimizer.zero_grad()
         step += 1
 
         ##### TODO: Apply linear learning rate decay #####
         
+        #lr_record.append(scheduler.get_lr()[0])
         
         # Print training loss and accuracy over past logging step
         if step % logging_step == 0:
@@ -375,3 +384,7 @@ with open(result_file, 'w') as f:
 		    f.write(f"{test_question['id']},{result[i].replace(',','')}\n")
 
 print(f"Completed! Result is in {result_file}")
+
+
+#plt.plot(lr_record)
+#plt.show()
